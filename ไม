@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main() {
+
+    int numbur,r,c ;
+    printf ("enter numbur") ;
+    scanf ("%d", &numbur) ;
+ 
+    if ( numbur % 2 == 0) {
+      for (int r = 0 ; r < numbur ; r++ ) {
+        for (int c= 0 ; c < numbur ; c++) {
+         if ( r == numbur-1) {
+          printf("1") ;
+          printf("\n") ;
+        }else {
+          printf ("0") ;
+          
+        }
+       }
+      }
+    }
+
+
+    return 0 ;
+}//end main function
