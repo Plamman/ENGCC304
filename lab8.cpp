@@ -25,19 +25,28 @@
 
 int main() {
 
-int a[5] ;
+int n = 0 ;
+int arr[n] ;
 int p ;
 int s = 0 ;
-while ( s < 5 ) {
-printf ("=") ;
+
+printf ("enter numbur") ;
+scanf ("%d" , &n ) ;
+
+while ( s < n ) {
+printf ("= ") ;
 scanf ("%d" , &p ) ;
 
- a[s] = p ;
+ arr[s] = p  ;
  s++ ;
-
 }
-for ( int i = 0 ; i < s ; i++ ) {
-printf ( "%d" , a [ i ] ) ;
+for ( int i = 0 ; i < n ; i++ ) {
+  if ( arr[i] % 2 == 0 ) {
+  printf ( " #" ) ;
+ } else {
+    printf ( " %d" , arr [ i ] ) ;
+
+ }
 }
 
     return 0 ;
