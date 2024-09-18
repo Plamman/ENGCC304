@@ -34,20 +34,26 @@ printf ("enter numbur") ;
 scanf ("%d" , &n ) ;
 
 while ( s < n ) {
-printf ("= ") ;
+printf ("Enter value = ") ;
 scanf ("%d" , &p ) ;
 
  arr[s] = p  ;
  s++ ;
 }
 for ( int i = 0 ; i < n ; i++ ) {
-  if ( arr[i] % 2 == 0 ) {
-  printf ( " #" ) ;
- } else {
-    printf ( " %d" , arr [ i ] ) ;
+    printf ( " %d" , i   ) ;
+
+  if ( ( arr [ i ] % 2 == 0 || arr [ i ] % 3 == 0 || arr [ i ] % 5 == 0 || arr [ i ] % 7 == 0 ) 
+        && ( arr [ i ] != 2 && arr [ i ] != 3 && arr [ i ] !=5 && arr [ i ] != 7 ) ) {
+      printf ( " #" ) ;
+
+ }else {
+      printf ( " %d" , arr [ i ] ) ;
+
 
  }
-}
+  
+} 
 
     return 0 ;
 }//end main function
