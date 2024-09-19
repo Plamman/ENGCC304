@@ -24,36 +24,38 @@
 #include <stdio.h>
 
 int main() {
+    int n = 0;
+    
+    printf ("Enter number of elements: ") ;
+    scanf ( "%d" , &n ) ; //ตัวnเก็บค่าช่องว่างในarr[n]
+    
+    int arr[ n ] ;
+    int p ;
+    int s = 0 ;
 
-int n = 0 ;
-int arr[n] ;
-int p ;
-int s = 0 ;
+    while ( s < n ) {
+        printf ("Enter value: ") ;
+        scanf ( "%d" , &p ) ; //เก็บค่าตัวเลขจากผู้ใส่
+        arr[ s ] = p ;
+        s++ ;
+    }
+        printf ("Index: ") ;
 
-printf ("enter numbur") ;
-scanf ("%d" , &n ) ;
+    for ( int i = 0 ; i < n ; i++ ) {
+        printf ( " %d" , i ) ; //แสดงค่าตัวเลขจากตัวแปล n
+    }
+    printf ( "\n" ) ;
 
-while ( s < n ) {
-printf ("Enter value = ") ;
-scanf ("%d" , &p ) ;
+    printf ( "Array: " ) ;
+    for ( int i = 0 ; i < n ; i++ ) {
+        if ( ( arr[ i ] % 2 == 0 || arr[ i ] % 3 == 0 || arr[ i ] % 5 == 0 || arr[ i ] % 7 == 0) &&
+            (arr[ i ] != 2 && arr[ i ] != 3 && arr[ i ] != 5 && arr[ i ] != 7) ) {
+            printf ( " #" ) ;
+        } else {
+            printf ( " %d" , arr[ i ] ) ;
+        }
+    }
+    printf ( "\n" ) ;
 
- arr[s] = p  ;
- s++ ;
+    return 0;
 }
-for ( int i = 0 ; i < n ; i++ ) {
-    printf ( " %d" , i   ) ;
-
-  if ( ( arr [ i ] % 2 == 0 || arr [ i ] % 3 == 0 || arr [ i ] % 5 == 0 || arr [ i ] % 7 == 0 ) 
-        && ( arr [ i ] != 2 && arr [ i ] != 3 && arr [ i ] !=5 && arr [ i ] != 7 ) ) {
-      printf ( " #" ) ;
-
- }else {
-      printf ( " %d" , arr [ i ] ) ;
-
-
- }
-  
-} 
-
-    return 0 ;
-}//end main function
