@@ -26,7 +26,7 @@
 int main() {
     int n = 0;
     
-    printf ("Enter number of elements: ") ;
+    printf ("Enter N :") ;
     scanf ( "%d" , &n ) ; //ตัวnเก็บค่าช่องว่างในarr[n]
     
     int arr[ n ] ;
@@ -34,7 +34,7 @@ int main() {
     int s = 0 ;
 
     while ( s < n ) {
-        printf ("Enter value: ") ;
+        printf ("Enter value[%d] :",s) ;
         scanf ( "%d" , &p ) ; //เก็บค่าตัวเลขจากผู้ใส่
         arr[ s ] = p ;
         s++ ;
