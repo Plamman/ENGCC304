@@ -1,38 +1,38 @@
 #include <stdio.h>
 int main () {
-float numbur ;
+float score ;
 int a ;
-printf ("enter numbur :") ;
-scanf ("%f", &numbur) ; 
-a = numbur / 5 ;
+printf ("enter score:") ;
+scanf ("%f", &score) ; 
+a = score / 5 ;
 switch (a) {
   case 20 :
   case 19 :
   case 18 :
   case 17 :
   case 16 :
-    printf ("A !") ;
+    printf (" A !") ;
     break ;
   case 15 :
-    printf ("B+ !") ;
+    printf (" B+ !") ;
     break ;
   case 14 :
-    printf ("B !") ;
+    printf (" B !") ;
     break ;
   case 13 :
-    printf ("c+ !") ;
+    printf (" c+ !") ;
     break ;
   case 12 :
-    printf ("c !") ;
+    printf (" c !") ;
     break ;
   case 11 :
-    printf ("D+ !") ;
+    printf (" D+ !") ;
     break ;
   case 10 :
-    printf ("D !") ;
+    printf (" D !") ;
     break ;
  default :
-    printf ("F !") ; 
+    printf (" F !") ; 
     break ;
 }//end switch
   return 0 ;
