@@ -11,28 +11,28 @@ switch (a) {
   case 18 :
   case 17 :
   case 16 :
-    printf ("A") ;
+    printf ("A !") ;
     break ;
   case 15 :
-    printf ("B+") ;
+    printf ("B+ !") ;
     break ;
   case 14 :
-    printf ("B") ;
+    printf ("B !") ;
     break ;
   case 13 :
-    printf ("c+") ;
+    printf ("c+ !") ;
     break ;
   case 12 :
-    printf ("c") ;
+    printf ("c !") ;
     break ;
   case 11 :
-    printf ("D+") ;
+    printf ("D+ !") ;
     break ;
   case 10 :
-    printf ("D") ;
+    printf ("D !") ;
     break ;
  default :
-    printf ("F") ; 
+    printf ("F !") ; 
     break ;
 }//end switch
   return 0 ;
