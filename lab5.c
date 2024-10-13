@@ -2,7 +2,7 @@
 int main () {
 float score ;
 int a ;
-printf ("enter score:") ;
+printf ("Enter score:") ;
 scanf ("%f", &score) ; 
 a = score / 5 ;
 switch (a) {
