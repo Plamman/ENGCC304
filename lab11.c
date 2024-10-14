@@ -16,9 +16,9 @@ int Separatenumbers(int number) {
 
 
     if (sum == originalNumber) {
-        printf ("Pass") ;
+        printf ("Pass.") ;
     } else {
-        printf ("Not Pass") ;
+        printf ("Not Pass.") ;
     }
 
     return 0 ;
