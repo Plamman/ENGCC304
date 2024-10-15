@@ -26,7 +26,7 @@ int Separatenumbers(int number) {
 
 int main() {
     int number ;
-    printf ("Enter a number: ") ;
+    printf ("Enter Number: ") ;
     scanf ("%d", &number) ; 
     Separatenumbers (number) ;
     
