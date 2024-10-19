@@ -4,7 +4,7 @@ int main() {
 
  int N ;  
 
-printf ("Enter value") ;
+printf ("Enter value:") ;
 scanf ("%d", &N ) ;
 
 if ( N % 2 != 0) {
