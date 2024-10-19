@@ -8,11 +8,11 @@ int main() {
 
     printf ("Enter a character: ") ; 
     scanf (" %c", &character) ; 
-    printf ("Enter two integers: ") ;
+    printf ("\nEnter two integers: ") ;
     scanf ("%d %d", &num1, &num2) ;
-    printf ("Enter a floating-point number: ") ;
+    printf ("\nEnter a floating-point number: ") ;
     scanf ("%f", &floatingPoint) ;
-    printf ("Enter a string: ") ;
+    printf ("\nEnter a string: ") ;
     scanf ("%s", string) ;
 
     printf ("You entered character: %c\n", character) ;
