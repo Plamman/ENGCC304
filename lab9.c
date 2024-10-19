@@ -11,15 +11,15 @@ int main() {
     int s = 0 ;
 
     while ( s < n ) {
-        printf ("Enter value[%d] :",s) ;
+        printf (" Enter value[%d] :",s) ;
         scanf ( "%d" , &p ) ; //เก็บค่าตัวเลขจากผู้ใส่
         arr[ s ] = p ;
         s++ ;
     }
-        printf ("Index: ") ;
+        printf (" Index: ") ;
 
     for ( int i = 0 ; i < n ; i++ ) {
-        printf ( " %d" , i ) ; //แสดงค่าตัวเลขจากตัวแปล n
+        printf ( "%2d" , i ) ; //แสดงค่าตัวเลขจากตัวแปล n
     }
     printf ( "\n" ) ;
 
@@ -27,7 +27,7 @@ int main() {
     for ( int i = 0 ; i < n ; i++ ) {
         if ( ( arr[ i ] % 2 == 0 || arr[ i ] % 3 == 0 || arr[ i ] % 5 == 0 || arr[ i ] % 7 == 0) &&
             (arr[ i ] != 2 && arr[ i ] != 3 && arr[ i ] != 5 && arr[ i ] != 7) ) {
-            printf ( " #" ) ;
+            printf ( "  #" ) ;
         } else {
             printf ( " %d" , arr[ i ] ) ;
         }
