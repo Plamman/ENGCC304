@@ -15,7 +15,7 @@ int main() {
     printf ("\nEnter a string: ") ;
     scanf ("%s", string) ;
 
-    printf ("You entered character: %c\n", character) ;
+    printf ("\nYou entered character: %c\n", character) ;
     printf ("You entered integers: %d and %d\n", num1, num2) ;
     printf ("You entered floating-point number: %.2f\n", floatingPoint) ; 
     printf ("You entered string: %s \n", string) ;
