@@ -8,7 +8,7 @@ printf ("Enter value:") ;
 scanf ("%d", &N ) ;
 
 if ( N % 2 != 0) {
-  printf ("Series: ") ;
+  printf (" Series: ") ;
 
    for ( int i = 1 ; i <= N ; i++ ) {
      if ( i % 2 != 0 ) {
@@ -19,7 +19,7 @@ if ( N % 2 != 0) {
    }
 
  } else {
-    printf ("Series: ") ;
+    printf (" Series: ") ;
 
     for ( int i = N ; i >= 0 ; i-- ) {
       if ( i % 2 == 0 ) {
