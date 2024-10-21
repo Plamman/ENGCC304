@@ -12,14 +12,14 @@ int main() {
 
     while ( s < n ) {
         printf (" Enter value[%d] :",s) ;
-        scanf ( "%d" , &p ) ; //เก็บค่าตัวเลขจากผู้ใส่
+        scanf ( "%2d" , &p ) ; //เก็บค่าตัวเลขจากผู้ใส่
         arr[ s ] = p ;
         s++ ;
     }
         printf (" Index: ") ;
 
     for ( int i = 0 ; i < n ; i++ ) {
-        printf ( "%2d" , i ) ; //แสดงค่าตัวเลขจากตัวแปล n
+        printf ( "%3d" , i ) ; //แสดงค่าตัวเลขจากตัวแปล n
     }
     printf ( "\n" ) ;
 
@@ -29,7 +29,7 @@ int main() {
             (arr[ i ] != 2 && arr[ i ] != 3 && arr[ i ] != 5 && arr[ i ] != 7) ) {
             printf ( "  #" ) ;
         } else {
-            printf ( " %d" , arr[ i ] ) ;
+            printf ( " %2d" , arr[ i ] ) ;
         }
     }
     printf ( "\n" ) ;
