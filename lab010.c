@@ -19,8 +19,8 @@ int main() {
     revest[ length ] = '\0' ;
 
     if (strcmp( text , revest ) == 0 ) {
-        printf( " Pass" ) ;
+        printf( " Pass." ) ;
     } else 
-        printf( " Not Pass" ) ;
+        printf( " Not Pass." ) ;
     return 0 ;
 }//end main function
