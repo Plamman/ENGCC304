@@ -1,0 +1,91 @@
+/*คำสั่ง reserv ใช้สำหรับจองโต๊ะ reserv <โต๊ะที่ต้องการ> <ชื่อคนจอง> <วันที่> <เวลา>
+ * คำสั่ง cancel ใช้สำหรับยกเลิกการจองด้วย id cancel <รหัสจอง>
+ * คำสั่ง Print แสดงรายการจองในโต๊ะ Print <หมายเลขโต๊ะ>
+ * คำสั่ง exit ออกจากโปรแกรม
+ *
+ */
+package ระบบจองโต๊ะอาหารในร้าน ;
+
+import java.util.Scanner ;
+
+public class ระบบจองโต๊ะอาหารในร้าน {
+    public static void main(String[] args) {
+        
+        boolean loop = true ;
+        RCollection[] table = new RCollection[5] ;
+        
+        for (int i = 0 ; i < table.length ; i++) {
+            table[i] = new RCollection() ;
+        }
+
+        Scanner input = new Scanner(System.in) ;
+        while (loop) {
+            System.out.print("Command: ") ;
+            String cmd = input.nextLine() ;
+            String st[] = cmd.split(" ") ;
+
+            switch (st[0]) {
+                case "exit":
+                    loop = false ;
+                    break ;
+
+                case "reserv":
+                    if (st.length == 5) {
+                        String tableNo = st[1] ;
+                        int index = Integer.parseInt(tableNo) - 1 ;
+                        if (index < 0 || index >= table.length) {
+                            System.out.println("Invalid table number.") ;
+                            break;
+                        }
+                        
+                        BookingRecord r = new BookingRecord( st[2], st[1], st[3], st[4] ) ;
+                        table[index].add(r) ;
+                        System.out.println("Reservation saved successfully.") ;
+                        System.out.println("ID: " + r.id) ;
+                        System.out.println("Name: " + r.name) ;
+                        
+                    } else {
+                        System.out.println("Invalid data format. Usage: reserv <tableNo> <name> <dd/mm/yyyy> <hh:mm>") ;
+                    }
+                    
+                    break ;
+
+                case "cancel":
+                    if (st.length == 2) {
+                        String idToCancel = st[1] ;
+                        boolean found = false ;
+                        for (RCollection t : table) {
+                            if (t.remove(idToCancel)) {
+                                found = true ;
+                                System.out.println("Reservation " + idToCancel + " has been canceled.") ; 
+                                break ;
+                            }
+                        }
+                        if (!found) {
+                            System.out.println("Reservation ID not found.") ;
+                        }
+                    } else {
+                        System.out.println("Invalid usage. Use: cancel <reservationID>") ;
+                    }
+                    break ;
+
+                case "Print":
+                    if (st.length == 2) {
+                        int idx = Integer.parseInt(st[1]) - 1 ;
+                        if (idx >= 0 && idx < table.length) {
+                            table[idx].show() ;
+                        } else {
+                            System.out.println("Invalid table number.") ;
+                        }
+                    } else {
+                        System.out.println("Usage: Print <tableNo>") ;
+                    }
+                    break ;
+
+                default:
+                    System.out.println("Unknown command.") ;
+            }
+        }
+    }
+    
+}
