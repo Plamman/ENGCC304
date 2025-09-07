@@ -1,0 +1,171 @@
+package appmain;
+
+
+public class Appmain {
+    public static void main(String[] args) {
+        String infix = "( A + B ) * ( C - D )";
+        String postfix = InfixToPostfix.convert(infix);
+
+        System.out.println("Infix:   " + infix);
+        System.out.println("Postfix: " + postfix);
+
+        String backToInfix = PostfixToInfix.convert(postfix);
+        System.out.println("Postfix → Infix: " + backToInfix);
+    }
+    
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+package appmain;
+
+
+public class InfixToPostfix {
+    private static int precedence(String op) {
+        switch (op) {
+            case "+": case "-": return 1;
+            case "*": case "/": return 2;
+            case "^": return 3;
+        }
+        return -1;
+    }
+
+    public static String convert(String expr) {
+        Stack stack = new Stack();
+        Queue output = new Queue();
+
+        String[] tokens = expr.split(" ");
+
+        for (String token : tokens) {
+            if (token.matches("[a-zA-Z0-9]+")) { 
+                output.enqueue(token);
+            } else if (token.equals("(")) {
+                stack.push(token);
+            } else if (token.equals(")")) {
+                while (!stack.isEmpty() && !stack.peek().equals("(")) {
+                    output.enqueue(stack.pop());
+                }
+                stack.pop(); // pop "("
+            } else { 
+                while (!stack.isEmpty() && precedence(token) <= precedence(stack.peek())) {
+                    output.enqueue(stack.pop());
+                }
+                stack.push(token);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            output.enqueue(stack.pop());
+        }
+
+        return output.display();
+    }
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+package appmain;
+
+
+public class PostfixToInfix {
+    public static String convert(String expr) {
+        Stack stack = new Stack();
+
+        String[] tokens = expr.split(" ");
+
+        for (String token : tokens) {
+            if (token.matches("[a-zA-Z0-9]+")) {
+                stack.push(token);
+            } else { 
+                String b = stack.pop();
+                String a = stack.pop();
+                String newExpr = "(" + a + " " + token + " " + b + ")";
+                stack.push(newExpr);
+            }
+        }
+        return stack.pop();
+    }
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+package appmain;
+
+
+public class Node {
+   String data;
+    Node next;
+
+    Node(String data) {
+        this.data = data;
+        this.next = null;
+    } 
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+package appmain;
+
+
+public class Stack {
+   private Node top;
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public void push(String data) {
+        Node newNode = new Node(data);
+        newNode.next = top;
+        top = newNode;
+    }
+
+    public String pop() {
+        if (isEmpty()) return null;
+        String data = top.data;
+        top = top.next;
+        return data;
+    }
+
+    public String peek() {
+        return isEmpty() ? null : top.data;
+    } 
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+package appmain;
+
+
+public class Queue {
+    private Node front, rear;
+
+    public boolean isEmpty() {
+        return front == null;
+    }
+
+    public void enqueue(String data) {
+        Node newNode = new Node(data);
+        if (rear == null) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
+        }
+    }
+
+    public String dequeue() {
+        if (isEmpty()) return null;
+        String data = front.data;
+        front = front.next;
+        if (front == null) rear = null;
+        return data;
+    }
+
+    public String display() {
+        StringBuilder sb = new StringBuilder();
+        Node temp = front;
+        while (temp != null) {
+            sb.append(temp.data).append(" ");
+            temp = temp.next;
+        }
+        return sb.toString().trim();
+    }
+}
+
+
